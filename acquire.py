@@ -3,6 +3,13 @@ import pandas as pd
 import numpy as np
 from env import get_connection
 
+"""
+This is how you get rid of the Unnamed: 0 column:
+
+#read_csv(filename, index_col=0)
+#to_csv(filename, index=False)
+"""
+
 def get_titanic_data():
     filename = "titanic.csv"
     
