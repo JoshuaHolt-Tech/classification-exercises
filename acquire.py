@@ -20,7 +20,7 @@ def get_titanic_data():
         df = pd.read_sql('SELECT * FROM passengers', get_connection('titanic_db'))
         
         # Write that dataframe to disk for later. Called "caching" the data for later.
-        df.to_file(filename)
+        df.to_csv(filename, index=False)
         
         # Return the dataframe to the calling code
         return df
@@ -42,7 +42,7 @@ def get_iris_data():
         df = pd.read_sql(query, get_connection('iris_db'))
         
         # Write that dataframe to disk for later. Called "caching" the data for later.
-        df.to_csv(filename)
+        df.to_csv(filename, index=False)
         
         # Return the dataframe to the calling code
         return df
@@ -66,7 +66,7 @@ def get_telco_data():
         df = pd.read_sql(query, get_connection('telco_churn'))
         
         # Write that dataframe to disk for later. Called "caching" the data for later.
-        df.to_csv(filename)
+        df.to_csv(filename, index=False)
         
         # Return the dataframe to the calling code
         return df

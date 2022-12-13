@@ -12,7 +12,7 @@ def prep_telco(working_df):
     cleaner set of data.
     """
     
-    cols_to_drop = ['Unnamed: 0', 'customer_id', 'payment_type_id', 'internet_service_type_id', 'contract_type_id', 'customer_id']
+    cols_to_drop = ['customer_id', 'payment_type_id', 'internet_service_type_id', 'contract_type_id', 'customer_id']
     
     working_df.drop(columns=cols_to_drop, inplace = True)
     working_df['total_charges'] = working_df['total_charges'].replace(' ', 0).astype('float')
@@ -36,7 +36,7 @@ def prep_titanic(df):
     and areturns a cleaner version.
     """
     
-    cols_to_drop = ['Unnamed: 0', 'passenger_id', 'age', 'embarked', 'class', 'deck']
+    cols_to_drop = ['passenger_id', 'age', 'embarked', 'class', 'deck']
     df.drop(columns=cols_to_drop, inplace = True)
     dummy_df = pd.get_dummies(df[['sex', 'embark_town']], drop_first=True)
     df = pd.concat([df, dummy_df], axis=1)
@@ -52,7 +52,7 @@ def prep_iris(df):
     a cleaner dataset.
     """
     #Assigns column to a list and drops species_id:
-    cols_to_drop = ['Unnamed: 0', 'species_id'] #Never imported the measurements_id column
+    cols_to_drop = ['species_id'] #Never imported the measurements_id column
     df = df.drop(columns=cols_to_drop)
     
     #Shortens the species column name:
